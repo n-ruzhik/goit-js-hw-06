@@ -1,10 +1,11 @@
-const refs = {
-  input: document.querySelector("#name-input"),
-  greetingLabel: document.querySelector("#name-output"),
-};
-
-refs.input.addEventListener("input", onInputChange);
+const input = document.querySelector("#name-input");
+const outputName = document.querySelector("#name-output");
 
 function onInputChange(event) {
-  refs.greetingLabel.textContent = event.currentTarget.value;
+  outputName.textContent = event.currentTarget.value.trim();
+  if (!outputName.textContent) {
+    outputName.textContent = "Anonymous";
+  }
 }
+
+input.addEventListener("input", onInputChange);
